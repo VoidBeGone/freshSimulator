@@ -6,14 +6,20 @@ Bob's hungry, and he's trying to eat healthy this time. Help him grab some fruit
 
 ## Controls
 WASD for Movement
+
 Space for Jumbing
+
 Tab for grabbing fruit
 
 ## Goal of the Game
 The Green area is the safe temperature zone and the red areas are out of stable range
+
 Move the Produce to a safe zone and keep them fresh
+
 If a Produce goes to 0 health you lose a heart
+
 Also avoid hitting the Sprites
+
 Try to survive all 5 mins
 
 # Authors / Creators
