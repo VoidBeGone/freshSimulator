@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Produce : ProduceData
 {
@@ -45,7 +46,8 @@ public class Produce : ProduceData
             world.PlayerDamaged();
             GameObject.Destroy(this.gameObject);
         }
-            
+
+        
     }
 
     float GetCurrentTempFromGrid()

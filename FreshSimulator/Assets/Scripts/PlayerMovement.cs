@@ -1,10 +1,12 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float speed = 5f;
     [SerializeField] private float jump = 6f;
     [SerializeField] private LayerMask groundLayer;
+    [SerializeField] Text healthText;
 
     private Rigidbody2D body;
     private BoxCollider2D boxCollider;
@@ -19,7 +21,7 @@ public class PlayerMovement : MonoBehaviour
     private void Awake()
     {
         body = GetComponent<Rigidbody2D>();
-        boxCollider = GetComponent<BoxCollider2D>(); 
+        boxCollider = GetComponent<BoxCollider2D>();
         body.freezeRotation = true;
         isGrabing = false;
         grabCoolDownTime = 0;
@@ -58,16 +60,25 @@ public class PlayerMovement : MonoBehaviour
                 grabCoolDownTime = Time.time + 1f;
             }
         }
+
+        if (isGrabing)
+        {
+            healthText.text = grabbedFruit.GetComponent<Produce>().currentHealth.ToString();
+        }
+        else
+        {
+            healthText.text = "0";
+        }
     }
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-
-
         Debug.Log($"Colliding with something : {collision.gameObject.layer}");
 
         if (collision.gameObject.layer == 7)
         {
+            healthText.text = collision.gameObject.GetComponent<Produce>().currentHealth.ToString();
+
             if (Input.GetKeyDown(KeyCode.Tab))
             {
                 if (!isGrabing && Time.time > grabCoolDownTime)
@@ -82,11 +93,9 @@ public class PlayerMovement : MonoBehaviour
 
                     grabbedFruit = collision.gameObject;
 
-                } 
-
-                
+                }
             }
         }
-        
+
     }
 }
