@@ -180,3 +180,8 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
+  healthText: {fileID: 0}
+  heatLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  damageCooldown: 3

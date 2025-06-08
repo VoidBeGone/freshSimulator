@@ -3565,7 +3565,7 @@ MonoBehaviour:
   - {fileID: 6959197693273131182, guid: 4185b20367d98eb4791cfd89d9170f8d, type: 3}
   RoundTime: 300
   CountDownTimer: {fileID: 1714032671}
-  PlayerHP: 3
+  PlayerHP: 5
 --- !u!212 &1353512634
 SpriteRenderer:
   m_ObjectHideFlags: 0
