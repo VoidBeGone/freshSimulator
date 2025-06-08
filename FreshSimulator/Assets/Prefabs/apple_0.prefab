@@ -178,8 +178,8 @@ MonoBehaviour:
   produceName: Apple
   idealTempRange: {x: 0.4, y: 0.6}
   maxHealth: 100
-  freshnessDecayPerSecond: 2
   freshSprite: {fileID: -7832214784768987486, guid: 92ebe8aa8694c614fae30e037d5a9906, type: 3}
   rottenSprite: {fileID: 8817977533679719565, guid: 3c6a245d7d0606d4ca6cc7a8b1ecc9d6, type: 3}
   freshPrefab: {fileID: 0}
   rottenPrefab: {fileID: 0}
+  currentHealth: 0

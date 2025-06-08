@@ -178,8 +178,8 @@ MonoBehaviour:
   produceName: Watermelon
   idealTempRange: {x: 0.4, y: 0.6}
   maxHealth: 100
-  freshnessDecayPerSecond: 2
   freshSprite: {fileID: 8532703672136922592, guid: b2ccbfbd80ee6c345a5a33875cfc2fb8, type: 3}
   rottenSprite: {fileID: -7173871779593734470, guid: 66a254e3e085813489ef1bc1be316e2c, type: 3}
   freshPrefab: {fileID: 0}
   rottenPrefab: {fileID: 0}
+  currentHealth: 0

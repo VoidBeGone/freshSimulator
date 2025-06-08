@@ -6,7 +6,7 @@ public class ProduceData : MonoBehaviour
     public string produceName;
     public Vector2 idealTempRange; // (minTemp, maxTemp)
     public int maxHealth = 100;
-    public float freshnessDecayPerSecond = 2f;
+    protected float freshnessDecayPerSecond = 4f;
 
     public Sprite freshSprite;
     public Sprite rottenSprite;

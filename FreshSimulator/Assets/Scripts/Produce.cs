@@ -30,7 +30,7 @@ public class Produce : ProduceData
         }
 
         float currentTemp = GetCurrentTempFromGrid();
-        Debug.Log(currentTemp);
+        //Debug.Log(currentTemp);
         Vector2 range = idealTempRange;
 
         if (currentTemp < range.x || currentTemp > range.y)
@@ -39,6 +39,13 @@ public class Produce : ProduceData
             currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
             UpdateVisuals();
         }
+
+        if (currentHealth < 0)
+        {
+            world.PlayerDamaged();
+            GameObject.Destroy(this.gameObject);
+        }
+            
     }
 
     float GetCurrentTempFromGrid()

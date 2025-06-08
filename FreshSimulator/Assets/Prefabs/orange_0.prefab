@@ -178,8 +178,8 @@ MonoBehaviour:
   produceName: Orange
   idealTempRange: {x: 0.4, y: 0.6}
   maxHealth: 100
-  freshnessDecayPerSecond: 2
   freshSprite: {fileID: -6410442598547967069, guid: 9f02ceb7aa0133742b613c6a5d7b4d31, type: 3}
   rottenSprite: {fileID: -3879918704067146827, guid: 0a8ec65f3ed34784e840aa0d74f1c129, type: 3}
   freshPrefab: {fileID: 0}
   rottenPrefab: {fileID: 0}
+  currentHealth: 0

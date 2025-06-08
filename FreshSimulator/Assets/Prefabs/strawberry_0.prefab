@@ -178,8 +178,8 @@ MonoBehaviour:
   produceName: Strawberry
   idealTempRange: {x: 0.4, y: 0.6}
   maxHealth: 100
-  freshnessDecayPerSecond: 2
   freshSprite: {fileID: 1669490993913548592, guid: dbde39af61a93234fb42b3532be0734c, type: 3}
   rottenSprite: {fileID: -3284950033437568326, guid: 06c6606268d0fb84eb8090243eba288c, type: 3}
   freshPrefab: {fileID: 0}
   rottenPrefab: {fileID: 0}
+  currentHealth: 0

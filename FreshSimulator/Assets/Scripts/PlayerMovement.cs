@@ -10,11 +10,19 @@ public class PlayerMovement : MonoBehaviour
     private BoxCollider2D boxCollider;
     private bool isGrounded;
 
+    private bool isGrabing;
+
+    private float grabCoolDownTime;
+
+    private GameObject grabbedFruit;
+
     private void Awake()
     {
         body = GetComponent<Rigidbody2D>();
         boxCollider = GetComponent<BoxCollider2D>(); 
         body.freezeRotation = true;
+        isGrabing = false;
+        grabCoolDownTime = 0;
     }
 
     private void Update()
@@ -28,7 +36,7 @@ public class PlayerMovement : MonoBehaviour
             groundLayer
         );
 
-        Debug.Log("Grounded: " + isGrounded);
+        //Debug.Log("Grounded: " + isGrounded);
 
         body.linearVelocity = new Vector2(Input.GetAxis("Horizontal") * speed, body.linearVelocity.y);
 
@@ -36,5 +44,49 @@ public class PlayerMovement : MonoBehaviour
         {
             body.linearVelocity = new Vector2(body.linearVelocity.x, jump);
         }
+
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            if (isGrabing && Time.time > grabCoolDownTime)
+            {
+                grabbedFruit.transform.parent = GameObject.Find("Fridge").transform;
+
+                grabbedFruit.GetComponent<Rigidbody2D>().simulated = true;
+
+                isGrabing = false;
+
+                grabCoolDownTime = Time.time + 1f;
+            }
+        }
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+
+
+        Debug.Log($"Colliding with something : {collision.gameObject.layer}");
+
+        if (collision.gameObject.layer == 7)
+        {
+            if (Input.GetKeyDown(KeyCode.Tab))
+            {
+                if (!isGrabing && Time.time > grabCoolDownTime)
+                {
+                    collision.gameObject.transform.parent = this.transform;
+
+                    collision.gameObject.GetComponent<Rigidbody2D>().simulated = false;
+
+                    isGrabing = true;
+
+                    grabCoolDownTime = Time.time + 1f;
+
+                    grabbedFruit = collision.gameObject;
+
+                } 
+
+                
+            }
+        }
+        
     }
 }
