@@ -3563,7 +3563,7 @@ MonoBehaviour:
   - {fileID: 8445413629859739871, guid: 68c56ffc234cfd4459865a198b07b5db, type: 3}
   - {fileID: 4593480459138051085, guid: 1aa6daf5087c07348a23df05a7748fac, type: 3}
   - {fileID: 6959197693273131182, guid: 4185b20367d98eb4791cfd89d9170f8d, type: 3}
-  RoundTime: 120
+  RoundTime: 300
   CountDownTimer: {fileID: 1714032671}
   PlayerHP: 3
 --- !u!212 &1353512634
