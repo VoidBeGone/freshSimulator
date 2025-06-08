@@ -4,24 +4,24 @@ using UnityEngine.UI;
 
 public class WorldManager : MonoBehaviour
 {
-    [Header("Fridge Dimensions")]
-    [SerializeField] int Width;
-    [SerializeField] int Height;
+    [Header("Fridge Settings")]
+    [SerializeField] private int width;
+    [SerializeField] private int height;
     [SerializeField] public int Buffer;
+
+    public int Width { get; private set; }
+    public int Height { get; private set; }
 
     private int _HalfWidth;
     private int _HalfHeight;
 
-    [Header("Entity Count")]
-    [SerializeField] int SputterCount;
-    [SerializeField] int ProduceCount;
+    [Header("Spawn Settings")]
+    [SerializeField] private int SputterCount;
+    [SerializeField] private int ProduceCount;
 
-    [Header("Prefabs and Objects")]
-    [SerializeField] GameObject UIHolder;
-    [SerializeField] GameObject Fridge;
-    [SerializeField] GameObject SputterHeatPrefab;
-    [SerializeField] GameObject SputterColdPrefab;
-    [SerializeField] GameObject HeartPrefab;
+    [SerializeField] private GameObject Fridge;
+    [SerializeField] private GameObject SputterHeatPrefab;
+    [SerializeField] private GameObject SputterColdPrefab;
 
     [SerializeField] GameObject[] ProducePrefabs;
 
@@ -38,13 +38,16 @@ public class WorldManager : MonoBehaviour
 
     private void Awake()
     {
+        // Copy serialized values to public properties
+        Width = width;
+        Height = height;
+
         _HalfWidth = Width / 2;
         _HalfHeight = Height / 2;
 
         Fridge.GetComponent<FridgeTemperature>().SetDimensions(Width, Height, Buffer);
 
         SpawnTempSprites();
-
         Fridge.GetComponent<FridgeTemperature>().UpdateTempSpriteChildren();
 
         SpawnProduce();
@@ -60,9 +63,12 @@ public class WorldManager : MonoBehaviour
 
         foreach (GameObject produce in ProducePrefabs)
         {
-            GameObject sputter = Instantiate(produce, Fridge.transform);
-
-            sputter.transform.localPosition = new Vector3(Random.Range(MinX, MaxX), Random.Range(MinY, MaxY), -0.5f);
+            GameObject instance = Instantiate(produce, Fridge.transform);
+            instance.transform.localPosition = new Vector3(
+                Random.Range(MinX, MaxX),
+                Random.Range(MinY, MaxY),
+                -0.5f
+            );
         }
     }
 
@@ -77,72 +83,13 @@ public class WorldManager : MonoBehaviour
     private void SpawnTempSprites()
     {
         for (int i = 0; i < SputterCount; i++)
-        {
-            GameObject sputter = Instantiate(SputterHeatPrefab, Fridge.transform);
-        }
+            Instantiate(SputterHeatPrefab, Fridge.transform);
 
         for (int i = 0; i < SputterCount; i++)
-        {
-            GameObject sputter = Instantiate(SputterColdPrefab, Fridge.transform);
-        }
+            Instantiate(SputterColdPrefab, Fridge.transform);
     }
 
-    private void UpdateCountDown()
-    {
-        RemainingTime = RoundTime - Time.time;
+    void Start() { }
 
-        if (RemainingTime < 0)
-            SceneManager.LoadScene("Game Win");
-
-        int mins = (int)(RemainingTime / 60f);
-        int seconds = (int)(RemainingTime % 60f);
-
-        if (seconds < 10)
-            CountDownTimer.text = $"{mins}:0{seconds}";
-        else
-            CountDownTimer.text = $"{mins}:{seconds}";
-    }
-
-    private int count = 0;
-
-    private void FixedUpdate()
-    {
-        UpdateCountDown();
-
-        count++;
-
-        if (count > 600)
-        {
-            //PlayerDamaged();
-            count = 0;
-        }
-
-    }
-
-    public void PlayerDamaged()
-    {
-        PlayerHP--;
-
-        GameObject.Destroy(Hearts[PlayerHP]);
-
-        if (PlayerHP == 0)
-        {
-            SceneManager.LoadScene("Game Over");
-            //Game Over
-        }
-    }
-
-
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
+    void Update() { }
 }
