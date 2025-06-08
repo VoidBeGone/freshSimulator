@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 756523820741375153}
   - component: {fileID: 8465455197750071748}
   - component: {fileID: 631484921208207348}
+  - component: {fileID: -4296646131032697944}
   m_Layer: 7
   m_Name: apple_0
   m_TagString: Untagged
@@ -162,3 +163,23 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &-4296646131032697944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5546488180347449366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 278df75ed5f7c40d0a01b68bc1eeaeec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  produceName: Apple
+  idealTempRange: {x: 0.4, y: 0.6}
+  maxHealth: 100
+  freshSprite: {fileID: -7832214784768987486, guid: 92ebe8aa8694c614fae30e037d5a9906, type: 3}
+  rottenSprite: {fileID: 8817977533679719565, guid: 3c6a245d7d0606d4ca6cc7a8b1ecc9d6, type: 3}
+  freshPrefab: {fileID: 0}
+  rottenPrefab: {fileID: 0}
+  currentHealth: 0

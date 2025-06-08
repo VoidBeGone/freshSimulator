@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6885079285982208719}
   - component: {fileID: 3790568853455447538}
   - component: {fileID: 7724622633854206883}
+  - component: {fileID: -5153255830658281835}
   m_Layer: 7
   m_Name: orange_0
   m_TagString: Untagged
@@ -162,3 +163,23 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &-5153255830658281835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8445413629859739871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 278df75ed5f7c40d0a01b68bc1eeaeec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  produceName: Orange
+  idealTempRange: {x: 0.4, y: 0.6}
+  maxHealth: 100
+  freshSprite: {fileID: -6410442598547967069, guid: 9f02ceb7aa0133742b613c6a5d7b4d31, type: 3}
+  rottenSprite: {fileID: -3879918704067146827, guid: 0a8ec65f3ed34784e840aa0d74f1c129, type: 3}
+  freshPrefab: {fileID: 0}
+  rottenPrefab: {fileID: 0}
+  currentHealth: 0

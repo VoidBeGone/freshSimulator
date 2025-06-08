@@ -1,19 +1,19 @@
 using UnityEngine;
+using UnityEngine.UI;
 
-public class Produce : MonoBehaviour
+public class Produce : ProduceData
 {
-    public ProduceData data;
-    private float currentHealth;
+    public float currentHealth;
     private SpriteRenderer spriteRenderer;
     private FridgeTemperature fridge;
     private WorldManager world;
 
     void Start()
     {
-        currentHealth = data.maxHealth;
+        currentHealth = maxHealth;
         spriteRenderer = GetComponent<SpriteRenderer>();
         fridge = GetComponentInParent<FridgeTemperature>();
-        world = fridge?.GetComponent<WorldManager>();
+        world = GameObject.Find("World").GetComponent<WorldManager>();
 
         if (fridge == null || world == null)
         {
@@ -26,17 +26,28 @@ public class Produce : MonoBehaviour
     void Update()
     {
         if (fridge == null || world == null)
-            return;
+        {
+            Debug.Log("Returning");
+        }
 
         float currentTemp = GetCurrentTempFromGrid();
-        Vector2 range = data.idealTempRange;
+        //Debug.Log(currentTemp);
+        Vector2 range = idealTempRange;
 
         if (currentTemp < range.x || currentTemp > range.y)
         {
-            currentHealth -= data.freshnessDecayPerSecond * Time.deltaTime;
-            currentHealth = Mathf.Clamp(currentHealth, 0, data.maxHealth);
+            currentHealth -=freshnessDecayPerSecond * Time.deltaTime;
+            currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
             UpdateVisuals();
+        } 
+
+        if (currentHealth < 0)
+        {
+            world.PlayerDamaged();
+            GameObject.Destroy(this.gameObject);
         }
+
+        
     }
 
     float GetCurrentTempFromGrid()
@@ -53,11 +64,11 @@ public class Produce : MonoBehaviour
 
     void UpdateVisuals()
     {
-        float percent = currentHealth / data.maxHealth;
-        spriteRenderer.sprite = percent > 0.5f ? data.freshSprite : data.rottenSprite;
+        float percent = currentHealth / maxHealth;
+        spriteRenderer.sprite = percent > 0.5f ? freshSprite : rottenSprite;
     }
 
     public bool IsSpoiled() => currentHealth <= 0;
 
-    public void ResetFreshness() => currentHealth = data.maxHealth;
+    public void ResetFreshness() => currentHealth =maxHealth;
 }

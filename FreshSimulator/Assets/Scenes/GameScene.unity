@@ -655,6 +655,85 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1394454191}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &205428588
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 205428591}
+  - component: {fileID: 205428590}
+  - component: {fileID: 205428589}
+  m_Layer: 5
+  m_Name: ItemHealth
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &205428589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 205428588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 50
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 5
+    m_MaxSize: 50
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: New Text
+--- !u!222 &205428590
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 205428588}
+  m_CullTransparentMesh: 1
+--- !u!224 &205428591
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 205428588}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1479091033}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 160, y: 60}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &280608084
 GameObject:
   m_ObjectHideFlags: 0
@@ -3484,7 +3563,7 @@ MonoBehaviour:
   - {fileID: 8445413629859739871, guid: 68c56ffc234cfd4459865a198b07b5db, type: 3}
   - {fileID: 4593480459138051085, guid: 1aa6daf5087c07348a23df05a7748fac, type: 3}
   - {fileID: 6959197693273131182, guid: 4185b20367d98eb4791cfd89d9170f8d, type: 3}
-  RoundTime: 120
+  RoundTime: 300
   CountDownTimer: {fileID: 1714032671}
   PlayerHP: 3
 --- !u!212 &1353512634
@@ -3702,6 +3781,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 205428591}
   - {fileID: 2091409428}
   m_Father: {fileID: 778493423}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5023,6 +5103,10 @@ PrefabInstance:
       propertyPath: speed
       value: 35
       objectReference: {fileID: 0}
+    - target: {fileID: 6007455600189931852, guid: c77666bb1bf725941836fc5aa63e378b, type: 3}
+      propertyPath: healthText
+      value: 
+      objectReference: {fileID: 205428589}
     - target: {fileID: 8274043420689925683, guid: c77666bb1bf725941836fc5aa63e378b, type: 3}
       propertyPath: m_Mass
       value: 1
@@ -5032,8 +5116,20 @@ PrefabInstance:
       value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 8292747562907075257, guid: c77666bb1bf725941836fc5aa63e378b, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8292747562907075257, guid: c77666bb1bf725941836fc5aa63e378b, type: 3}
       propertyPath: m_IncludeLayers.m_Bits
       value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 8292747562907075257, guid: c77666bb1bf725941836fc5aa63e378b, type: 3}
+      propertyPath: m_ForceSendLayers.m_Bits
+      value: 119
+      objectReference: {fileID: 0}
+    - target: {fileID: 8292747562907075257, guid: c77666bb1bf725941836fc5aa63e378b, type: 3}
+      propertyPath: m_ForceReceiveLayers.m_Bits
+      value: 119
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

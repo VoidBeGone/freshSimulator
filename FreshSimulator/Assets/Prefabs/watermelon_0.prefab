@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3540368555658756803}
   - component: {fileID: 6894726623143596826}
   - component: {fileID: 4944478229396310004}
+  - component: {fileID: 4764485468430275115}
   m_Layer: 7
   m_Name: watermelon_0
   m_TagString: Untagged
@@ -162,3 +163,23 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &4764485468430275115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6959197693273131182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 278df75ed5f7c40d0a01b68bc1eeaeec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  produceName: Watermelon
+  idealTempRange: {x: 0.4, y: 0.6}
+  maxHealth: 100
+  freshSprite: {fileID: 8532703672136922592, guid: b2ccbfbd80ee6c345a5a33875cfc2fb8, type: 3}
+  rottenSprite: {fileID: -7173871779593734470, guid: 66a254e3e085813489ef1bc1be316e2c, type: 3}
+  freshPrefab: {fileID: 0}
+  rottenPrefab: {fileID: 0}
+  currentHealth: 0
