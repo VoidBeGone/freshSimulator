@@ -57,7 +57,7 @@ public class PlayerMovement : MonoBehaviour
 
                 isGrabing = false;
 
-                grabCoolDownTime = Time.time + 1f;
+                grabCoolDownTime = Time.time + 0.25f;
             }
         }
 
@@ -89,7 +89,7 @@ public class PlayerMovement : MonoBehaviour
 
                     isGrabing = true;
 
-                    grabCoolDownTime = Time.time + 1f;
+                    grabCoolDownTime = Time.time + 0.25f;
 
                     grabbedFruit = collision.gameObject;
 
