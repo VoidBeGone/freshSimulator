@@ -4,16 +4,11 @@ public class FridgeTemperature : MonoBehaviour
 {
     [SerializeField] Camera Camera;
 
-    [SerializeField] int Width;
-    [SerializeField] int Height;
-    [SerializeField] public int Buffer;
+    private int Width;
+    private int Height;
+    public int Buffer;
 
     [SerializeField] int SputterCount;
-
-    [SerializeField] GameObject SputterHeatPrefab;
-    [SerializeField] GameObject SputterColdPrefab;
-
-    public GameObject[] ProducePrefabs;
 
     [SerializeField] float AvgTemp;
 
@@ -27,8 +22,12 @@ public class FridgeTemperature : MonoBehaviour
 
     private Transform[] Children;
     
-    private void Awake()
+    public void SetDimensions (int width, int height, int buffer)
     {
+        this.Width = width;
+        this.Height = height;
+        this.Buffer = buffer;
+
         // Get half Dimensions
         _HalfWidth = Width / 2;
         _HalfHeight = Height / 2;
@@ -39,6 +38,19 @@ public class FridgeTemperature : MonoBehaviour
         // Create temp data
         TempData = new float[Width, Height];
 
+        InitializeTexture();
+
+        // Create new Sprite with the Texture
+        Sprite sprite = Sprite.Create(_Texture, new Rect(0, 0, Width, Height), new Vector2(0.5f, 0.5f), 1);
+        _SpriteRenderer.sprite = sprite;
+
+        //Fit the Camera to the Size of the Texture with buffer
+        float orthoSizeHeight = _SpriteRenderer.bounds.size.y / 2f;
+        Camera.orthographicSize = orthoSizeHeight * 1.1f;
+    }
+
+    private void InitializeTexture ()
+    {
         // Create a new Empty Texture
         _Texture = new Texture2D(Width, Height, TextureFormat.RGBA32, false);
         _Texture.filterMode = FilterMode.Point;
@@ -56,31 +68,10 @@ public class FridgeTemperature : MonoBehaviour
 
         //Apply the texture
         _Texture.Apply();
-
-        // Create new Sprite with the Texture
-        Sprite sprite = Sprite.Create(_Texture, new Rect(0, 0, Width, Height), new Vector2(0.5f, 0.5f), 1);
-        _SpriteRenderer.sprite = sprite;
-
-        //Fit the Camera to the Size of the Texture with buffer
-        float orthoSizeHeight = _SpriteRenderer.bounds.size.y / 2f;
-        Camera.orthographicSize = orthoSizeHeight * 1.1f;
-
-        //Spawn the Temperature Sprites
-        SpawnTempSprites();
     }
 
-    private void SpawnTempSprites()
+    public void UpdateTempSpriteChildren ()
     {
-        for (int i = 0; i < SputterCount; i++)
-        {
-            GameObject sputter = Instantiate(SputterHeatPrefab, transform);
-        }
-
-        for (int i = 0; i < SputterCount; i++)
-        {
-            GameObject sputter = Instantiate(SputterColdPrefab, transform);
-        }
-
         Children = new Transform[transform.childCount];
 
         for (int i = 0; i < transform.childCount; i++)
@@ -89,16 +80,6 @@ public class FridgeTemperature : MonoBehaviour
 
             Children[i] = child;
         }
-
-        foreach (GameObject produce in ProducePrefabs)
-        {
-            GameObject sputter = Instantiate(produce, transform);
-        }
-    }
-
-    private void SpawnProduce ()
-    {
-
     }
 
     private void CalculateAvgTemp()

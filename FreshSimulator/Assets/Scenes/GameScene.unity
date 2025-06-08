@@ -225,7 +225,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 100
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -371,17 +371,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Camera: {fileID: 519420031}
-  Width: 100
-  Height: 150
   Buffer: 3
   SputterCount: 3
-  SputterHeatPrefab: {fileID: 2493991873076931684, guid: 5647507a31c7abd40bf8d280c93ca513, type: 3}
-  SputterColdPrefab: {fileID: 6575929490931631917, guid: a4fa9f240abf0854fb07e016fcb04f07, type: 3}
-  ProducePrefabs:
-  - {fileID: 5546488180347449366, guid: 7fb9dd30894de37448569cab1ffc7601, type: 3}
-  - {fileID: 8445413629859739871, guid: 68c56ffc234cfd4459865a198b07b5db, type: 3}
-  - {fileID: 4593480459138051085, guid: 1aa6daf5087c07348a23df05a7748fac, type: 3}
-  - {fileID: 6959197693273131182, guid: 4185b20367d98eb4791cfd89d9170f8d, type: 3}
   AvgTemp: 0
 --- !u!212 &1002732213
 SpriteRenderer:
@@ -483,9 +474,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d825e73200be2054dbbb61729c8c912a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Width: 100
+  Height: 150
+  Buffer: 3
   SputterCount: 3
   ProduceCount: 3
-  Fridge: {fileID: 0}
+  Fridge: {fileID: 1002732211}
   SputterHeatPrefab: {fileID: 2493991873076931684, guid: 5647507a31c7abd40bf8d280c93ca513, type: 3}
   SputterColdPrefab: {fileID: 6575929490931631917, guid: a4fa9f240abf0854fb07e016fcb04f07, type: 3}
   ProducePrefabs:
