@@ -21,9 +21,9 @@ public class SputterSprite : TempEmittingSprite
         this.Offset = Random.Range(0, 100000f);
 
         if (IsCold)
-            Temperature = Random.Range(0.15f, 0.3f);
+            Temperature = Random.Range(0f, 0.2f);
         else
-            Temperature = Random.Range(0.7f, 0.85f);
+            Temperature = Random.Range(0.8f, 1f);
 
         MovementDirection = new Vector2(Random.Range(-1, 1), Random.Range(-1, 1));
 
