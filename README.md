@@ -18,6 +18,9 @@ Try to survive all 5 mins
 
 # Authors / Creators
 Alex Dufresne - Nappert (https://github.com/MrDNAlex)
+
 Peter Yoo
+
 Grant Achuzia
+
 Ujjval Rajput
