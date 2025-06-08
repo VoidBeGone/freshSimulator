@@ -30,11 +30,11 @@ public class PlayerMovement : MonoBehaviour
 
         Debug.Log("Grounded: " + isGrounded);
 
-        body.velocity = new Vector2(Input.GetAxis("Horizontal") * speed, body.velocity.y);
+        body.linearVelocity = new Vector2(Input.GetAxis("Horizontal") * speed, body.linearVelocity.y);
 
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
-            body.velocity = new Vector2(body.velocity.x, jump);
+            body.linearVelocity = new Vector2(body.linearVelocity.x, jump);
         }
     }
 }
