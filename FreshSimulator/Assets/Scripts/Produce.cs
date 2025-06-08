@@ -38,7 +38,7 @@ public class Produce : ProduceData
             currentHealth -=freshnessDecayPerSecond * Time.deltaTime;
             currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
             UpdateVisuals();
-        }
+        } 
 
         if (currentHealth < 0)
         {
