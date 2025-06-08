@@ -19,7 +19,10 @@ public class WorldManager : MonoBehaviour
     [SerializeField] private int SputterCount;
     [SerializeField] private int ProduceCount;
 
+    [Header("Game Objects and Prefabs")]
     [SerializeField] private GameObject Fridge;
+    [SerializeField] private GameObject HeartPrefab;
+    [SerializeField] private GameObject UIHolder;
     [SerializeField] private GameObject SputterHeatPrefab;
     [SerializeField] private GameObject SputterColdPrefab;
 

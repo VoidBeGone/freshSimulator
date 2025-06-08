@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "ProduceData", menuName = "FreshSimulator/ProduceData")]
-public class ProduceData : ScriptableObject
+public class ProduceData : MonoBehaviour
 {
     public string produceName;
     public Vector2 idealTempRange; // (minTemp, maxTemp)

@@ -3469,16 +3469,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d825e73200be2054dbbb61729c8c912a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Width: 300
-  Height: 200
+  width: 300
+  height: 200
   Buffer: 3
   SputterCount: 7
   ProduceCount: 3
-  UIHolder: {fileID: 1479091032}
   Fridge: {fileID: 1002732211}
+  HeartPrefab: {fileID: 4843127447421545504, guid: 94d9e7cb06c83c744a4ead28b808201a, type: 3}
+  UIHolder: {fileID: 1479091032}
   SputterHeatPrefab: {fileID: 2493991873076931684, guid: 5647507a31c7abd40bf8d280c93ca513, type: 3}
   SputterColdPrefab: {fileID: 6575929490931631917, guid: a4fa9f240abf0854fb07e016fcb04f07, type: 3}
-  HeartPrefab: {fileID: 4843127447421545504, guid: 94d9e7cb06c83c744a4ead28b808201a, type: 3}
   ProducePrefabs:
   - {fileID: 5546488180347449366, guid: 7fb9dd30894de37448569cab1ffc7601, type: 3}
   - {fileID: 8445413629859739871, guid: 68c56ffc234cfd4459865a198b07b5db, type: 3}
