@@ -18,7 +18,6 @@ public class SputterSprite : TempEmittingSprite
 
         IsActive = true;
 
-        //this.Parent = this.transform.parent;
         this.Offset = Random.Range(0, 100000f);
 
         if (IsCold)
@@ -59,17 +58,5 @@ public class SputterSprite : TempEmittingSprite
         }
 
         transform.position = futurePosition;
-    }
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

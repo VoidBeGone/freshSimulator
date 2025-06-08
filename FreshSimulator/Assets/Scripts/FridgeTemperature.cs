@@ -1,7 +1,4 @@
-using TMPro;
 using UnityEngine;
-using UnityEngine.Rendering;
-using static Unity.VisualScripting.Metadata;
 
 public class FridgeTemperature : MonoBehaviour
 {
@@ -16,6 +13,8 @@ public class FridgeTemperature : MonoBehaviour
     [SerializeField] GameObject SputterHeatPrefab;
     [SerializeField] GameObject SputterColdPrefab;
 
+    public GameObject[] ProducePrefabs;
+
     [SerializeField] float AvgTemp;
 
     public float[,] TempData;
@@ -27,64 +26,50 @@ public class FridgeTemperature : MonoBehaviour
     private int _HalfHeight;
 
     private Transform[] Children;
-
+    
     private void Awake()
     {
+        // Get half Dimensions
         _HalfWidth = Width / 2;
         _HalfHeight = Height / 2;
 
+        //Get the Sprite Renderer
         _SpriteRenderer = GetComponent<SpriteRenderer>();
 
         // Create temp data
         TempData = new float[Width, Height];
 
-        // Make a texture
+        // Create a new Empty Texture
         _Texture = new Texture2D(Width, Height, TextureFormat.RGBA32, false);
         _Texture.filterMode = FilterMode.Point;
         _Texture.wrapMode = TextureWrapMode.Clamp;
 
-        // Apply blank pixels
+        //Set Initial Values for Texture and TempData
         for (int x = 0; x < Width; x++)
-            for (int y = 0; y < Height; y++)
-                _Texture.SetPixel(x, y, new Color(0, 0, 0, 0.3f));
-
-        for (int x = 0; x < Width; x++)
+        {
             for (int y = 0; y < Height; y++)
             {
+                _Texture.SetPixel(x, y, new Color(0, 0, 0, 0.3f));
                 TempData[x, y] = 0.5f;
-
-                if (x < Buffer || x > this.Width - Buffer)
-                    continue;
-
-                if (y < Buffer || y > this.Height - Buffer)
-                    continue;
-
-                if (y % 10 == 0)
-                {
-                    float randTemp = 0.5f + Random.Range(-0.3f, 0.3f);
-
-                    for (int i = -2; i < 2; i++)
-                        for (int j = -2; j < 2; j++)
-                            TempData[x + i, y + j] = randTemp;
-
-                }
             }
+        }
 
-
+        //Apply the texture
         _Texture.Apply();
 
-        // Create sprite from texture
+        // Create new Sprite with the Texture
         Sprite sprite = Sprite.Create(_Texture, new Rect(0, 0, Width, Height), new Vector2(0.5f, 0.5f), 1);
         _SpriteRenderer.sprite = sprite;
 
-        //Fit Camera to height of the fridge (+ 5% buffer)
+        //Fit the Camera to the Size of the Texture with buffer
         float orthoSizeHeight = _SpriteRenderer.bounds.size.y / 2f;
-        Camera.orthographicSize = orthoSizeHeight * 1.05f;
+        Camera.orthographicSize = orthoSizeHeight * 1.1f;
 
-        SpawnTemps();
+        //Spawn the Temperature Sprites
+        SpawnTempSprites();
     }
 
-    private void SpawnTemps()
+    private void SpawnTempSprites()
     {
         for (int i = 0; i < SputterCount; i++)
         {
@@ -104,9 +89,19 @@ public class FridgeTemperature : MonoBehaviour
 
             Children[i] = child;
         }
+
+        foreach (GameObject produce in ProducePrefabs)
+        {
+            GameObject sputter = Instantiate(produce, transform);
+        }
     }
 
-    private void CalculateAvgTemp ()
+    private void SpawnProduce ()
+    {
+
+    }
+
+    private void CalculateAvgTemp()
     {
         float sum = 0;
 
@@ -129,7 +124,6 @@ public class FridgeTemperature : MonoBehaviour
 
         _Texture.Apply();
     }
-
 
     public float GetTempMultiplier(TempEmittingSprite sprite)
     {

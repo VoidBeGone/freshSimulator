@@ -7,18 +7,15 @@ public class TempEmittingSprite : MonoBehaviour
     /// </summary>
     public bool IsActive;
 
-
     /// <summary>
     /// Temperature the Sprite is Emitting
     /// </summary>
     public float Temperature;
 
-
     /// <summary>
     /// Size of the Emitted Temperature Zone
     /// </summary>
     public int TempSize;
-
 
     public float MinX;
     public float MaxX;
