@@ -14,7 +14,7 @@ public class SputterSprite : TempEmittingSprite
     {
         GetParentSize();
 
-        this.TempSize = 2;
+        this.TempSize = 1;
 
         IsActive = true;
 

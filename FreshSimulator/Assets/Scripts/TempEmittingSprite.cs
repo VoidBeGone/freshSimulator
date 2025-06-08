@@ -32,9 +32,11 @@ public class TempEmittingSprite : MonoBehaviour
     {
         Vector3 ParentSize = transform.parent.GetComponent<SpriteRenderer>().bounds.size;
 
-        MinX = -ParentSize.x / 2 + 4;
-        MaxX = ParentSize.x / 2 - 4;
-        MinY = -ParentSize.y / 2 + 4;
-        MaxY = ParentSize.y / 2 - 4;
+        int buffer = transform.parent.GetComponent<FridgeTemperature>().Buffer;
+
+        MinX = -ParentSize.x / 2 + buffer;
+        MaxX = ParentSize.x / 2 - buffer;
+        MinY = -ParentSize.y / 2 + buffer;
+        MaxY = ParentSize.y / 2 - buffer;
     }
 }
