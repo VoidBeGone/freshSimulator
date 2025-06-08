@@ -46,7 +46,7 @@ public class FridgeTemperature : MonoBehaviour
 
         //Fit the Camera to the Size of the Texture with buffer
         float orthoSizeHeight = _SpriteRenderer.bounds.size.y / 2f;
-        Camera.orthographicSize = orthoSizeHeight * 1.1f;
+        Camera.orthographicSize = orthoSizeHeight * 1.2f;
     }
 
     private void InitializeTexture ()
