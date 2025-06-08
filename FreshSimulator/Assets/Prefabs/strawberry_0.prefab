@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 9086516990343282565}
   - component: {fileID: 6828268298868354500}
   - component: {fileID: 4434355531549598710}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: strawberry_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -102,7 +102,7 @@ BoxCollider2D:
   m_Material: {fileID: 6200000, guid: 606bd65d5c1634a60b58e803594fa42e, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0

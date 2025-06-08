@@ -5031,6 +5031,10 @@ PrefabInstance:
       propertyPath: m_GravityScale
       value: 17
       objectReference: {fileID: 0}
+    - target: {fileID: 8292747562907075257, guid: c77666bb1bf725941836fc5aa63e378b, type: 3}
+      propertyPath: m_IncludeLayers.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

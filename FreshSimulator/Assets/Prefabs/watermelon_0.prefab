@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3540368555658756803}
   - component: {fileID: 6894726623143596826}
   - component: {fileID: 4944478229396310004}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: watermelon_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -102,7 +102,7 @@ BoxCollider2D:
   m_Material: {fileID: 6200000, guid: 606bd65d5c1634a60b58e803594fa42e, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6885079285982208719}
   - component: {fileID: 3790568853455447538}
   - component: {fileID: 7724622633854206883}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: orange_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -102,7 +102,7 @@ BoxCollider2D:
   m_Material: {fileID: 6200000, guid: 606bd65d5c1634a60b58e803594fa42e, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
